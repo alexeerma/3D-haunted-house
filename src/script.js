@@ -110,7 +110,7 @@ const planeGeometry = new THREE.PlaneGeometry(1, 1)
 const windowMaterial = new THREE.MeshStandardMaterial({color: 'red'})
 
 const window1 = new THREE.Mesh(planeGeometry, windowMaterial)
-window1.position.set(1, 1, 1)
+window1.rotation.(1, 1, 1)
 
 // Bushes
 const bushGeometry = new THREE.SphereGeometry(1, 16, 16)
