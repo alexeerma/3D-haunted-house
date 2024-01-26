@@ -43,6 +43,9 @@ const grassNormalTexture = textureLoader.load('/textures/grass/normal.jpg')
 const grassRoughnessTexture = textureLoader.load('/textures/grass/roughness.jpg')
 grassColorTexture.colorSpace = THREE.SRGBColorSpace
 
+const windowColorTexture = textureLoader.load('/textures/window/color.png')
+windowColorTexture.colorSpace = THREE.SRGBColorSpace
+
 grassColorTexture.repeat.set(8, 8)
 grassAmbientOcclusionTexture.repeat.set(8, 8)
 grassNormalTexture.repeat.set(8, 8)
@@ -57,6 +60,8 @@ grassColorTexture.wrapT = THREE.RepeatWrapping
 grassAmbientOcclusionTexture.wrapT = THREE.RepeatWrapping
 grassNormalTexture.wrapT = THREE.RepeatWrapping
 grassRoughnessTexture.wrapT = THREE.RepeatWrapping
+
+
 /**
  * House
  */
@@ -107,10 +112,30 @@ house.add(door)
 
 // Windows
 const planeGeometry = new THREE.PlaneGeometry(1, 1)
-const windowMaterial = new THREE.MeshStandardMaterial({color: 'red'})
+const windowMaterial = new THREE.MeshStandardMaterial({
+    map: windowColorTexture
+})
 
 const window1 = new THREE.Mesh(planeGeometry, windowMaterial)
-window1.rotation.(1, 1, 1)
+window1.position.y = 1.25
+window1.position.z = 0
+window1.position.x = 2 + 0.01
+window1.rotation.y = Math.PI / 2
+
+const window2 = new THREE.Mesh(planeGeometry, windowMaterial)
+window2.position.y = 1.25
+window2.position.z = 0
+window2.position.x = -2.01
+window2.rotation.y = Math.PI * 1.5
+
+
+const window3 = new THREE.Mesh(planeGeometry, windowMaterial)
+window3.position.y = 1.25
+window3.position.z = -2.01
+window3.position.x = 0
+window3.rotation.y = Math.PI 
+
+house.add(window1, window2, window3)
 
 // Bushes
 const bushGeometry = new THREE.SphereGeometry(1, 16, 16)
