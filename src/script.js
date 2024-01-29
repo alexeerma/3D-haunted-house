@@ -46,6 +46,7 @@ grassColorTexture.colorSpace = THREE.SRGBColorSpace
 const windowColorTexture = textureLoader.load('/textures/window/color.png')
 windowColorTexture.colorSpace = THREE.SRGBColorSpace
 
+
 grassColorTexture.repeat.set(8, 8)
 grassAmbientOcclusionTexture.repeat.set(8, 8)
 grassNormalTexture.repeat.set(8, 8)
@@ -113,8 +114,11 @@ house.add(door)
 // Windows
 const planeGeometry = new THREE.PlaneGeometry(1, 1)
 const windowMaterial = new THREE.MeshStandardMaterial({
-    map: windowColorTexture
+    map: windowColorTexture,
+    transparent: true
 })
+
+
 
 const window1 = new THREE.Mesh(planeGeometry, windowMaterial)
 window1.position.y = 1.25
